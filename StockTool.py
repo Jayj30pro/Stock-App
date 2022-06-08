@@ -45,6 +45,8 @@ def holdr():
 def clearit():
     global mes
     mes.destroy()
+    mes = Label(root,text="Please enter a stock ticker symbol bellow", font='arial 15 bold')
+    mes.place(x=100, y=100)
 
 root = Tk()
 root.geometry('600x400')
