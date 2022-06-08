@@ -21,6 +21,22 @@ def srch():
     mes = Label(root,text= stkmsg)
     mes.place(x=100, y=50)
     print(holdit)
+
+def genInfo():
+    global mes
+    stk = stock.get()
+    stk = stk.upper()
+    data = yf.Ticker(stk)
+    nam = data.info["shortName"]
+    bal = data.balance_sheet
+    cash = data.cashflow
+    earn = data.earnings
+    mes.destroy()
+    mes = Label(root,text= nam)
+    mes.place(x=100, y=50)
+    print(bal)
+    print(cash)
+    print(earn)
     
     
     
@@ -35,7 +51,8 @@ mes = Label(root,text="Please enter a stock ticker symbol bellow", font='arial 1
 mes.place(x=100, y=100)
 
 
-Button(root,text= 'Search', font= 'arial 12', bg='#5CA', command = srch).place(x=150, y=300)
+but1 = Button(root,text= 'Search', font= 'arial 12', bg='#5CA', command = srch).place(x=100, y=300)
+but2 = Button(root,text= 'Financials', font= 'arial 12', bg='#5CA', command = genInfo).place(x=200, y=300)
 
 
 root.mainloop()
