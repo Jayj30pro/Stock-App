@@ -47,6 +47,7 @@ def clearit():
     mes.destroy()
     mes = Label(root,text="Please enter a stock ticker symbol bellow", font='arial 15 bold')
     mes.place(x=100, y=100)
+    stock.delete(0, END)
 
 root = Tk()
 root.geometry('600x400')
