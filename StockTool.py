@@ -3,50 +3,50 @@ from tkinter import *
 
 
 def share():
-    global mes
+    global message
     stk = stock.get()
     stk = stk.upper()
     data = yf.Ticker(stk)
     stkmsg = data.major_holders
-    mes.destroy()
-    mes = Label(root,text= stkmsg)
-    mes.place(x=100, y=50)
+    message.destroy()
+    message = Label(root,text= stkmsg)
+    message.place(x=100, y=50)
 
 def div():
-    global mes
+    global message
     stk = stock.get()
     stk = stk.upper()
     data = yf.Ticker(stk)
     divyield =  data.info['dividendYield']*100
-    mes.destroy()
-    mes = Label(root,text= divyield)
-    mes.place(x=100, y=50)
+    message.destroy()
+    message = Label(root,text= divyield)
+    message.place(x=100, y=50)
 
 def genInfo():
-    global mes
+    global message
     stk = stock.get()
     stk = stk.upper()
     data = yf.Ticker(stk)
     nam = data.info["shortName"]
-    mes.destroy()
-    mes = Label(root,text= nam)
-    mes.place(x=100, y=50)
+    message.destroy()
+    message = Label(root,text= nam)
+    message.place(x=100, y=50)
 
 def holdr():
-    global mes
+    global message
     stk = stock.get()
     stk = stk.upper()
     data = yf.Ticker(stk)
     hol = data.institutional_holders
-    mes.destroy()
-    mes = Label(root,text= hol)
-    mes.place(x=50, y=50)
+    message.destroy()
+    message = Label(root,text= hol)
+    message.place(x=50, y=50)
 
 def clearit():
-    global mes
-    mes.destroy()
-    mes = Label(root,text="Please enter a stock ticker symbol bellow", font='arial 15 bold')
-    mes.place(x=100, y=100)
+    global message
+    message.destroy()
+    message = Label(root,text="Please enter a stock ticker symbol bellow", font='arial 15 bold')
+    message.place(x=100, y=100)
     stock.delete(0, END)
 
 root = Tk()
@@ -55,8 +55,8 @@ root.title("Stock Analyzer")
 root.resizable(0,0)
 stock = Entry(root, width = 30,)
 stock.place(x=100, y=200)
-mes = Label(root,text="Please enter a stock ticker symbol bellow", font='arial 15 bold')
-mes.place(x=100, y=100)
+message = Label(root,text="Please enter a stock ticker symbol bellow", font='arial 15 bold')
+message.place(x=100, y=100)
 
 
 but1 = Button(root,text= 'Name', font= 'arial 12', bg='#5CA', command = genInfo).place(x=80, y=300)
